@@ -35,24 +35,24 @@
             this.lsvGameFiles = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cmsGameFiles = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.replaceFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.requestFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.replaceSelectedFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.requestSelectedFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openSelectedFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lsvLog = new System.Windows.Forms.ListView();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.replaceSelectedFileToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.requestSelectedFiletoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.replaceFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.requestFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.replaceSelectedFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.requestSelectedFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openSelectedFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.grbGameFiles.SuspendLayout();
             this.cmsGameFiles.SuspendLayout();
@@ -79,7 +79,7 @@
             this.grbGameFiles.Margin = new System.Windows.Forms.Padding(4);
             this.grbGameFiles.Name = "grbGameFiles";
             this.grbGameFiles.Padding = new System.Windows.Forms.Padding(4);
-            this.grbGameFiles.Size = new System.Drawing.Size(535, 359);
+            this.grbGameFiles.Size = new System.Drawing.Size(599, 359);
             this.grbGameFiles.TabIndex = 2;
             this.grbGameFiles.TabStop = false;
             this.grbGameFiles.Text = "Game files (Not connected)";
@@ -98,7 +98,7 @@
             this.lsvGameFiles.Margin = new System.Windows.Forms.Padding(4);
             this.lsvGameFiles.MultiSelect = false;
             this.lsvGameFiles.Name = "lsvGameFiles";
-            this.lsvGameFiles.Size = new System.Drawing.Size(518, 327);
+            this.lsvGameFiles.Size = new System.Drawing.Size(582, 327);
             this.lsvGameFiles.SmallImageList = this.imageList;
             this.lsvGameFiles.TabIndex = 3;
             this.lsvGameFiles.UseCompatibleStateImageBehavior = false;
@@ -119,11 +119,41 @@
             this.cmsGameFiles.Name = "cmsGameFiles";
             this.cmsGameFiles.Size = new System.Drawing.Size(147, 82);
             // 
+            // replaceFileToolStripMenuItem
+            // 
+            this.replaceFileToolStripMenuItem.Enabled = false;
+            this.replaceFileToolStripMenuItem.Image = global::CafiineServerUI.Properties.Resources.Copy;
+            this.replaceFileToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.replaceFileToolStripMenuItem.Name = "replaceFileToolStripMenuItem";
+            this.replaceFileToolStripMenuItem.Size = new System.Drawing.Size(146, 26);
+            this.replaceFileToolStripMenuItem.Text = "Replace...";
+            this.replaceFileToolStripMenuItem.Click += new System.EventHandler(this.replaceFileToolStripMenuItem_Click);
+            // 
+            // requestFileToolStripMenuItem
+            // 
+            this.requestFileToolStripMenuItem.Enabled = false;
+            this.requestFileToolStripMenuItem.Image = global::CafiineServerUI.Properties.Resources.DownloadDocument;
+            this.requestFileToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.requestFileToolStripMenuItem.Name = "requestFileToolStripMenuItem";
+            this.requestFileToolStripMenuItem.Size = new System.Drawing.Size(146, 26);
+            this.requestFileToolStripMenuItem.Text = "Request...";
+            this.requestFileToolStripMenuItem.Click += new System.EventHandler(this.requestFileToolStripMenuItem_Click);
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Enabled = false;
+            this.openToolStripMenuItem.Image = global::CafiineServerUI.Properties.Resources.openfolder_24;
+            this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Fuchsia;
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(146, 26);
+            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripButton_Click);
+            // 
             // imageList
             // 
             this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
             this.imageList.TransparentColor = System.Drawing.Color.Magenta;
-            this.imageList.Images.SetKeyName(0, "info.png");
+            this.imageList.Images.SetKeyName(0, "infoBubble.bmp");
             this.imageList.Images.SetKeyName(1, "109_AllAnnotations_Error_16x16_72.png");
             this.imageList.Images.SetKeyName(2, "Copy.bmp");
             this.imageList.Images.SetKeyName(3, "DownloadDocument.bmp");
@@ -136,7 +166,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(839, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(940, 28);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -151,6 +181,36 @@
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
             this.fileToolStripMenuItem.Text = "&File";
+            // 
+            // replaceSelectedFileToolStripMenuItem
+            // 
+            this.replaceSelectedFileToolStripMenuItem.Enabled = false;
+            this.replaceSelectedFileToolStripMenuItem.Image = global::CafiineServerUI.Properties.Resources.Copy;
+            this.replaceSelectedFileToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.replaceSelectedFileToolStripMenuItem.Name = "replaceSelectedFileToolStripMenuItem";
+            this.replaceSelectedFileToolStripMenuItem.Size = new System.Drawing.Size(230, 26);
+            this.replaceSelectedFileToolStripMenuItem.Text = "Replace selected file...";
+            this.replaceSelectedFileToolStripMenuItem.Click += new System.EventHandler(this.replaceFileToolStripMenuItem_Click);
+            // 
+            // requestSelectedFileToolStripMenuItem
+            // 
+            this.requestSelectedFileToolStripMenuItem.Enabled = false;
+            this.requestSelectedFileToolStripMenuItem.Image = global::CafiineServerUI.Properties.Resources.DownloadDocument;
+            this.requestSelectedFileToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.requestSelectedFileToolStripMenuItem.Name = "requestSelectedFileToolStripMenuItem";
+            this.requestSelectedFileToolStripMenuItem.Size = new System.Drawing.Size(230, 26);
+            this.requestSelectedFileToolStripMenuItem.Text = "Request selected file...";
+            this.requestSelectedFileToolStripMenuItem.Click += new System.EventHandler(this.requestFileToolStripMenuItem_Click);
+            // 
+            // openSelectedFileToolStripMenuItem
+            // 
+            this.openSelectedFileToolStripMenuItem.Enabled = false;
+            this.openSelectedFileToolStripMenuItem.Image = global::CafiineServerUI.Properties.Resources.openfolder_24;
+            this.openSelectedFileToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Fuchsia;
+            this.openSelectedFileToolStripMenuItem.Name = "openSelectedFileToolStripMenuItem";
+            this.openSelectedFileToolStripMenuItem.Size = new System.Drawing.Size(230, 26);
+            this.openSelectedFileToolStripMenuItem.Text = "Open selected file";
+            this.openSelectedFileToolStripMenuItem.Click += new System.EventHandler(this.openToolStripButton_Click);
             // 
             // toolStripSeparator1
             // 
@@ -172,7 +232,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(300, 359);
+            this.groupBox1.Size = new System.Drawing.Size(337, 359);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Log";
@@ -190,7 +250,7 @@
             this.lsvLog.Margin = new System.Windows.Forms.Padding(4);
             this.lsvLog.MultiSelect = false;
             this.lsvLog.Name = "lsvLog";
-            this.lsvLog.Size = new System.Drawing.Size(283, 327);
+            this.lsvLog.Size = new System.Drawing.Size(320, 327);
             this.lsvLog.SmallImageList = this.imageList;
             this.lsvLog.TabIndex = 3;
             this.lsvLog.UseCompatibleStateImageBehavior = false;
@@ -209,19 +269,9 @@
             this.openToolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 28);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(839, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(940, 27);
             this.toolStrip1.TabIndex = 5;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // openToolStripMenuItem
-            // 
-            this.openToolStripMenuItem.Enabled = false;
-            this.openToolStripMenuItem.Image = global::CafiineServerUI.Properties.Resources.openfolder_24;
-            this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Fuchsia;
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(146, 26);
-            this.openToolStripMenuItem.Text = "Open";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripButton_Click);
             // 
             // replaceSelectedFileToolStripButton
             // 
@@ -256,56 +306,6 @@
             this.openToolStripButton.Text = "&Open";
             this.openToolStripButton.Click += new System.EventHandler(this.openToolStripButton_Click);
             // 
-            // replaceFileToolStripMenuItem
-            // 
-            this.replaceFileToolStripMenuItem.Enabled = false;
-            this.replaceFileToolStripMenuItem.Image = global::CafiineServerUI.Properties.Resources.Copy;
-            this.replaceFileToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.replaceFileToolStripMenuItem.Name = "replaceFileToolStripMenuItem";
-            this.replaceFileToolStripMenuItem.Size = new System.Drawing.Size(146, 26);
-            this.replaceFileToolStripMenuItem.Text = "Replace...";
-            this.replaceFileToolStripMenuItem.Click += new System.EventHandler(this.replaceFileToolStripMenuItem_Click);
-            // 
-            // requestFileToolStripMenuItem
-            // 
-            this.requestFileToolStripMenuItem.Enabled = false;
-            this.requestFileToolStripMenuItem.Image = global::CafiineServerUI.Properties.Resources.DownloadDocument;
-            this.requestFileToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.requestFileToolStripMenuItem.Name = "requestFileToolStripMenuItem";
-            this.requestFileToolStripMenuItem.Size = new System.Drawing.Size(146, 26);
-            this.requestFileToolStripMenuItem.Text = "Request...";
-            this.requestFileToolStripMenuItem.Click += new System.EventHandler(this.requestFileToolStripMenuItem_Click);
-            // 
-            // replaceSelectedFileToolStripMenuItem
-            // 
-            this.replaceSelectedFileToolStripMenuItem.Enabled = false;
-            this.replaceSelectedFileToolStripMenuItem.Image = global::CafiineServerUI.Properties.Resources.Copy;
-            this.replaceSelectedFileToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.replaceSelectedFileToolStripMenuItem.Name = "replaceSelectedFileToolStripMenuItem";
-            this.replaceSelectedFileToolStripMenuItem.Size = new System.Drawing.Size(230, 26);
-            this.replaceSelectedFileToolStripMenuItem.Text = "Replace selected file...";
-            this.replaceSelectedFileToolStripMenuItem.Click += new System.EventHandler(this.replaceFileToolStripMenuItem_Click);
-            // 
-            // requestSelectedFileToolStripMenuItem
-            // 
-            this.requestSelectedFileToolStripMenuItem.Enabled = false;
-            this.requestSelectedFileToolStripMenuItem.Image = global::CafiineServerUI.Properties.Resources.DownloadDocument;
-            this.requestSelectedFileToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.requestSelectedFileToolStripMenuItem.Name = "requestSelectedFileToolStripMenuItem";
-            this.requestSelectedFileToolStripMenuItem.Size = new System.Drawing.Size(230, 26);
-            this.requestSelectedFileToolStripMenuItem.Text = "Request selected file...";
-            this.requestSelectedFileToolStripMenuItem.Click += new System.EventHandler(this.requestFileToolStripMenuItem_Click);
-            // 
-            // openSelectedFileToolStripMenuItem
-            // 
-            this.openSelectedFileToolStripMenuItem.Enabled = false;
-            this.openSelectedFileToolStripMenuItem.Image = global::CafiineServerUI.Properties.Resources.openfolder_24;
-            this.openSelectedFileToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Fuchsia;
-            this.openSelectedFileToolStripMenuItem.Name = "openSelectedFileToolStripMenuItem";
-            this.openSelectedFileToolStripMenuItem.Size = new System.Drawing.Size(230, 26);
-            this.openSelectedFileToolStripMenuItem.Text = "Open selected file";
-            this.openSelectedFileToolStripMenuItem.Click += new System.EventHandler(this.openToolStripButton_Click);
-            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -319,15 +319,15 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
-            this.splitContainer1.Size = new System.Drawing.Size(839, 359);
-            this.splitContainer1.SplitterDistance = 535;
+            this.splitContainer1.Size = new System.Drawing.Size(940, 359);
+            this.splitContainer1.SplitterDistance = 599;
             this.splitContainer1.TabIndex = 6;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(839, 414);
+            this.ClientSize = new System.Drawing.Size(940, 414);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);

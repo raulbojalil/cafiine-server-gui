@@ -116,6 +116,21 @@ namespace CafiineServerUI
             }
         }
 
+        private void RequestFile(string remoteFile)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Title = "Select the local file to save " + remoteFile + " to";
+            sfd.FileName = Path.GetFileName(remoteFile);
+            sfd.Filter = "|*" + Path.GetExtension(remoteFile);
+
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                if (!requestedFiles.ContainsKey(remoteFile))
+                    requestedFiles.Add(remoteFile, sfd.FileName);
+                requestedFiles[remoteFile] = sfd.FileName;
+            }
+        }
+
         private void Log(string message)
         {
             bwkMain.ReportProgress((int)LogType.Info, message);
@@ -146,28 +161,8 @@ namespace CafiineServerUI
             bwkMain.ReportProgress((int)LogType.TitleID, id);
         }
 
-        private void RequestFile(string remoteFile)
-        {
-            SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Title = "Select the local file to save " + remoteFile + " to";
-            sfd.FileName = Path.GetFileName(remoteFile);
-            sfd.Filter = "|*" + Path.GetExtension(remoteFile);
-
-            if (sfd.ShowDialog() == DialogResult.OK)
-            {
-                if(!requestedFiles.ContainsKey(remoteFile))
-                    requestedFiles.Add(remoteFile, sfd.FileName);
-                requestedFiles[remoteFile] = sfd.FileName;
-            }
-        }
-
         private void MainForm_Load(object sender, EventArgs e)
         {
-
-            //listView1.Items.Add("hola", 0);
-
-           
-
             if (!Directory.Exists(root))
                 Directory.CreateDirectory(root);
 
@@ -577,14 +572,12 @@ namespace CafiineServerUI
                 case LogType.Info:
                     lsvLog.Items.Add(message, 0);
                     lsvLog.Items[lsvLog.Items.Count - 1].EnsureVisible();
-                    //lsvLog.TopIndex = listBox1.Items.Count - 1;
                     break;
                 case LogType.Error:
                     lsvLog.Items.Add(message, 1);
                     lsvLog.Items[lsvLog.Items.Count - 1].EnsureVisible();
                     break;
                 case LogType.File:
-                    
                     lsvGameFiles.Items.Add(message);
                     lsvGameFiles.Items[lsvGameFiles.Items.Count - 1].EnsureVisible();
                     break;
@@ -597,7 +590,6 @@ namespace CafiineServerUI
                     lsvGameFiles.Items[lsvGameFiles.Items.Count - 1].EnsureVisible();
                     break;
                 case LogType.RequestedFile:
-
                     var origPath = requestedFiles.FirstOrDefault(kvp => kvp.Value == message);
 
                     if (origPath.Key != null)
@@ -625,8 +617,7 @@ namespace CafiineServerUI
                     grbGameFiles.Text = string.Format("Game files ({0})", message);
                     break;
             }
-            
-            //textBox1.Text += e.UserState.ToString() + "\r\n";
+           
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -655,7 +646,7 @@ namespace CafiineServerUI
         private void replaceFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if(lsvGameFiles.SelectedItems.Count > 0)
-                ReplaceFile(lsvGameFiles.SelectedItems[0].Text);
+                ReplaceFile(lastTitleID + lsvGameFiles.SelectedItems[0].Text);
         }
 
         private void requestFileToolStripMenuItem_Click(object sender, EventArgs e)
